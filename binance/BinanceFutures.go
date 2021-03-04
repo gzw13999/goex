@@ -283,10 +283,10 @@ func (bs *BinanceFutures) PlaceFutureOrder(currencyPair CurrencyPair, contractTy
 
 	param := url.Values{}
 	param.Set("symbol", symbol)
-	param.Set("newClientOrderId", GenerateOrderClientId(32))
 	param.Set("quantity", amount)
 	param.Set("newOrderRespType", "ACK")
-
+	//brokerID
+	param.Set("newClientOrderId", "x-NsNjQXeQ"+GenerateOrderClientId(12))
 	if matchPrice == 0 {
 		param.Set("type", "LIMIT")
 		param.Set("timeInForce", "GTC")

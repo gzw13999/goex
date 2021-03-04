@@ -347,8 +347,8 @@ func (bs *BinanceSwap) PlaceFutureOrder2(currencyPair CurrencyPair, contractType
 	params := url.Values{}
 	params.Set("symbol", pair.ToSymbol(""))
 	params.Set("quantity", amount)
-	params.Set("newClientOrderId", fOrder.ClientOid)
-
+	//brokerID
+	params.Set("newClientOrderId", "x-NsNjQXeQ"+GenerateOrderClientId(12))
 	switch openType {
 	case OPEN_BUY, CLOSE_SELL:
 		params.Set("side", "BUY")

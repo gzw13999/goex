@@ -320,7 +320,8 @@ func (bn *Binance) placeOrder(amount, price string, pair CurrencyPair, orderType
 	params.Set("type", orderType)
 	params.Set("newOrderRespType", "ACK")
 	params.Set("quantity", amount)
-
+	//brokerID
+	params.Set("newClientOrderId", "x-SNBU4G35"+GenerateOrderClientId(12))
 	switch orderType {
 	case "LIMIT":
 		params.Set("timeInForce", "GTC")
